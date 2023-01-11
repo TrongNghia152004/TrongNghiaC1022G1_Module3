@@ -1,5 +1,5 @@
-create schema database_furama;
-use database_furama;
+CREATE SCHEMA database_furama;
+USE database_furama;
 CREATE TABLE vi_tri (
     ma_vi_tri INT PRIMARY KEY,
     ten_vi_tri VARCHAR(45)

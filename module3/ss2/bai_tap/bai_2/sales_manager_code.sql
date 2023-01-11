@@ -1,5 +1,5 @@
-create schema quan_li_ban_hang;
-use quan_li_ban_hang;
+CREATE SCHEMA quan_li_ban_hang;
+USE quan_li_ban_hang;
 CREATE TABLE customer (
     customer_id INT PRIMARY KEY,
     customer_name VARCHAR(45),
