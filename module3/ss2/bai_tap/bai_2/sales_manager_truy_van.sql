@@ -29,7 +29,7 @@ WHERE
 SELECT 
     `order`.order_id,
     `order`.order_date,
-    order_detail.order_quantity * product.product_price AS order_total_price
+    order_detail.oder_detail_QTY * product.product_price AS order_total_price
 FROM
     order_detail
         INNER JOIN
