@@ -1,5 +1,5 @@
-CREATE SCHEMA chuyen_doi_erd;
-USE chuyen_doi_erd;
+CREATE SCHEMA quan_ly_vat_tu;
+USE quan_ly_vat_tu;
 CREATE TABLE phieu_xuat (
     so_phieu_xuat INT PRIMARY KEY,
     ngay_xuat DATE NOT NULL
