@@ -1,4 +1,4 @@
-use quan_li_ban_hang;
+USE quan_li_ban_hang;
 -- Hiển thị các thông tin  gồm oID, oDate, oPrice của tất cả các hóa đơn trong bảng Order
 SELECT 
     order_id, order_date, order_total_price
