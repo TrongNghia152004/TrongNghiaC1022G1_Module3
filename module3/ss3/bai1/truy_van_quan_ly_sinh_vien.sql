@@ -1,4 +1,4 @@
-use quan_ly_sinh_vien;
+USE quan_ly_sinh_vien;
 
 -- Hiển thị tất cả các sinh viên có tên bắt đầu bảng ký tự ‘h’
 SELECT 
