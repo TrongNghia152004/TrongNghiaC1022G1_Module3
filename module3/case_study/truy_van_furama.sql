@@ -5,10 +5,10 @@ SELECT
 FROM
     nhan_vien
 WHERE
-    CHAR_LENGTH(nhan_vien.ho_va_ten) <= 15
-        AND (nhan_vien.ho_va_ten LIKE 'H%'
-        OR nhan_vien.ho_va_ten LIKE 'T%'
-        OR nhan_vien.ho_va_ten LIKE 'K%');
+    SUBSTRING_INDEX(nhan_vien.ho_va_ten, ' ', - 1) LIKE 'H%'
+        OR SUBSTRING_INDEX(nhan_vien.ho_va_ten, ' ', - 1) LIKE 'T%'
+        OR SUBSTRING_INDEX(nhan_vien.ho_va_ten, ' ', - 1) LIKE 'K%'
+        AND CHAR_LENGTH(ho_va_ten) <= 15;
 --  Hiển thị thông tin của tất cả khách hàng có độ tuổi từ 18 đến 50 tuổi và có địa chỉ ở “Đà Nẵng” hoặc “Quảng Trị”.
 SELECT 
     *
@@ -46,7 +46,7 @@ SELECT
     dich_vu.ten_dich_vu,
     hop_dong.ngay_lam_hop_dong,
     hop_dong.ngay_ket_thuc,
-    SUM(IFNULL(dich_vu.chi_phi_thue, 0) + IFNULL(hop_dong_chi_tiet.so_luong, 0) * IFNULL(dich_vu_di_kem.gia, 0)) AS 'tong_tien'
+    SUM(IFNULL(dich_vu.chi_phi_thue, 0) + IFNULL(hop_dong_chi_tiet.so_luong, 0) * IFNULL(dich_vu_di_kem.gia, 0)) 'total'
 FROM
     khach_hang
         LEFT JOIN
@@ -56,7 +56,33 @@ FROM
         LEFT JOIN
     dich_vu ON hop_dong.ma_dich_vu = dich_vu.ma_dich_vu
         LEFT JOIN
+    loai_dich_vu ON loai_dich_vu.ma_loai_dich_vu = dich_vu.ma_loai_dich_vu
+        LEFT JOIN
     hop_dong_chi_tiet ON hop_dong.ma_hop_dong = hop_dong_chi_tiet.ma_hop_dong
         LEFT JOIN
-    dich_vu_di_kem ON hop_dong_chi_tiet.ma_dich_vu_di_kem = dich_vu_di_kem.ma_dich_vu_di_kem
-GROUP BY ma_hop_dong;
+    dich_vu_di_kem ON dich_vu_di_kem.ma_dich_vu_di_kem = hop_dong_chi_tiet.ma_dich_vu_di_kem
+GROUP BY ma_hop_dong , khach_hang.ma_khach_hang
+ORDER BY ma_khach_hang ASC , ma_hop_dong DESC;
+-- Task 6
+SELECT 
+    dich_vu.ma_dich_vu,
+    dich_vu.ten_dich_vu,
+    dich_vu.dien_tich,
+    dich_vu.chi_phi_thue,
+    loai_dich_vu.ten_loai_dich_vu,
+    hop_dong.ngay_lam_hop_dong
+FROM
+    dich_vu
+        JOIN
+    loai_dich_vu ON loai_dich_vu.ma_loai_dich_vu = dich_vu.ma_loai_dich_vu
+        JOIN
+    hop_dong ON hop_dong.ma_dich_vu = dich_vu.ma_dich_vu
+WHERE
+    dich_vu.ma_dich_vu NOT IN (SELECT 
+            hop_dong.ma_dich_vu
+        FROM
+            hop_dong
+        WHERE
+            ((MONTH(hop_dong.ngay_lam_hop_dong) BETWEEN 1 AND 3)
+                AND YEAR(hop_dong.ngay_lam_hop_dong) LIKE 2021))
+GROUP BY dich_vu.ten_dich_vu;
