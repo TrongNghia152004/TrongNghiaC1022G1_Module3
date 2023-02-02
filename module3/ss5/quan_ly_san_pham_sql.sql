@@ -17,68 +17,84 @@ SELECT
 FROM
     products;
 -- Bước 3
-create index unique_index_products ON products(product_code);
-create index composite_index_products ON products(product_name,product_price);
+CREATE INDEX unique_index_products ON products(product_code);
+CREATE INDEX composite_index_products ON products(product_name,product_price);
 EXPLAIN SELECT * FROM products;
 EXPLAIN SELECT * FROM products
 WHERE id = 1;
 -- Bước 4
-CREATE VIEW view_products (codee , namess , price , statuss) AS
+CREATE VIEW view_products AS
     SELECT 
         product_code, product_name, product_price, product_status
     FROM
         products;
+        
+SELECT 
+    *
+FROM
+    view_products;
 UPDATE view_products 
 SET 
-    namess = 'Thuốc cảm cúm'
+    product_price = 15000
 WHERE
-    codee = 1;
+    product_id = 3;
 DROP VIEW view_products;
 -- Bước 5
-delimiter //
-CREATE PROCEDURE display_products()
+delimiter // 
+CREATE PROCEDURE list_product()
 BEGIN
 SELECT * FROM products;
-END;
+END 
 // delimiter ;
-CALL display_products;
-delimiter //
-CREATE PROCEDURE add_products(id INT, product_code INT, product_name VARCHAR(45), product_price INT, product_amount INT, product_description VARCHAR(45)
-, product_status VARCHAR(45))
-BEGIN
-INSERT INTO products VALUES 
-    (id , product_code, product_name, product_price, product_amount, product_description, product_status);
-    END;
-// delimiter ;
-CALL add_products(5,5,'Thuốc tránh thai', 10000, 5 , 'tránh thai', 'bảo hành');	
+CALL list_product;
+
+
 delimiter // 
-CREATE PROCEDURE edit_by_id(
-	id INT, 
-    product_code INT,
-	product_name VARCHAR(45),
-	product_price INT,
-	product_amount INT,
-	product_description VARCHAR(45),
-	product_status VARCHAR(45))
+CREATE PROCEDURE add_product(
+	IN p_id int, 
+   IN p_product_code INT,
+   IN p_product_name VARCHAR(50),
+   IN p_product_price INT,
+   IN p_product_amount INT,
+   IN p_product_description VARCHAR(50),
+   IN p_product_status VARCHAR(50)
+)
 BEGIN
-	UPDATE products
-    SET 
-    products.product_code = product_code,
-    products.product_name = product_name,
-    products.product_price = product_price,
-    products.product_amount= product_amount,
-    products.product_description = product_description,
-    products.product_status = product_status
-    WHERE products.id = id;
-END //
-delimiter ;
+INSERT INTO products (product_code, product_name, product_price, product_amount, product_description, product_status) VALUES  
+(p_product_code, p_product_name, p_product_price, p_product_amount, p_product_description, p_product_status);
+END
+// delimiter ;
 CALL edit_by_id (1,1,'thuốc cảm cúm',10000,15,'giải cảm','bảo hành');
 
-delimiter //
-CREATE PROCEDURE delete_by_id (id INT) 
+delimiter // 
+CREATE PROCEDURE edit_product(
+	IN p_id INT,
+	IN p_product_code INT,
+   IN p_product_name VARCHAR(50),
+   IN p_product_price INT,
+   IN p_product_amount INT,
+   IN p_product_description VARCHAR(50),
+   IN p_product_status VARCHAR(50)
+)
 BEGIN
-	DELETE FROM products
-    WHERE products.id = id;
-END //
-delimiter ;
-CALL delete_by_id(1);
+UPDATE products
+SET 
+products.product_code = p_product_code,
+products.product_name = p_product_name,
+products.product_price = p_product_price,
+products.product_amount = p_product_amount,
+products.product_description = p_product_description,
+products.product_status = p_product_status
+WHERE 
+products.id = p_id;
+END
+// delimiter ;
+
+delimiter // 
+CREATE PROCEDURE delete_product(IN p_id INT) 
+BEGIN
+DELETE FROM products
+WHERE products.id = p_id;
+END
+// delimiter ;
+CALL delete_product(1);
