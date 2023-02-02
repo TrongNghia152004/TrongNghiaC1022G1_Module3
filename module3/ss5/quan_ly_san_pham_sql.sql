@@ -51,7 +51,7 @@ CALL list_product;
 
 delimiter // 
 CREATE PROCEDURE add_product(
-	IN p_id int, 
+   IN p_id int, 
    IN p_product_code INT,
    IN p_product_name VARCHAR(50),
    IN p_product_price INT,
@@ -68,8 +68,8 @@ CALL edit_by_id (1,1,'thuốc cảm cúm',10000,15,'giải cảm','bảo hành')
 
 delimiter // 
 CREATE PROCEDURE edit_product(
-	IN p_id INT,
-	IN p_product_code INT,
+   IN p_id INT,
+   IN p_product_code INT,
    IN p_product_name VARCHAR(50),
    IN p_product_price INT,
    IN p_product_amount INT,
