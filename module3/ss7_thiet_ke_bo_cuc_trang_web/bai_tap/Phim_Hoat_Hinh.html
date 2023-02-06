@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        .row::after {
+            display: block;
+            clear: both;
+            content: "";
+        }
+
+        .col-1 {
+            width: 8.33%;
+        }
+
+        .col-2 {
+            width: 16.66%;
+        }
+
+        .col-3 {
+            width: 25%;
+        }
+
+        .col-4 {
+            width: 33.33%;
+        }
+
+        .col-5 {
+            width: 41.66%;
+        }
+
+        .col-6 {
+            width: 50%;
+        }
+
+        .col-7 {
+            width: 58.33%;
+        }
+
+        .col-8 {
+            width: 66.66%;
+        }
+
+        .col-9 {
+            width: 75%;
+        }
+
+        .col-10 {
+            width: 83.33%;
+        }
+
+        .col-11 {
+            width: 91.66%;
+        }
+
+        .col-12 {
+            width: 100%;
+        }
+
+        [class*="col-"] {
+            float: left;
+            padding: 5px;
+        }
+
+        .header, .menu {
+            background: #F5F5F5;
+        }
+
+        .menu {
+            margin-top: 40px;
+            text-align: center;
+            font-weight: bolder;
+        }
+
+        .header{
+            position: fixed;
+            z-index: 20;
+            margin-top: -35px;
+            width: 100%;
+        }
+        a {
+            font-weight: bolder;
+            text-decoration: none;
+            color: black;
+        }
+
+        span {
+            color: #76787E;
+        }
+
+        p {
+            text-align: justify;
+            margin-top: 20px;
+        }
+        .footer {
+            font-weight: bolder;
+            text-align: center;
+            background-color: #F8F8FF;
+        }
+    </style>
+</head>
+<body>
+<div class="row header">
+    <div class="col-12">Phim hoạt hình</div>
+</div>
+<div class="row menu">
+    <div class="col-12">
+        Phim hoạt hình | Phim hoạt hình yêu thích | Nhân vật hoạt hình | Góp ý
+    </div>
+</div>
+<div class="row">
+    <div class="col-4">
+        <div class="row">
+            <div class="col-12">
+                <video controls width="100%">
+                    <source src="movie.mp4" type="video/mp4">
+                    <source src="movie.ogg" type="video/ogg">
+                </video>
+                <a href>Welcome đến với khách sạn Nobi - </a><span> 5,147,528 lượt xem</span> <br>
+                <span>Chanel Fun</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <video controls width="100%">
+                    <source src="movie.mp4" type="video/mp4">
+                    <source src="movie.ogg" type="video/ogg">
+                </video>
+                <a href>Suneo khổng lồ - </a> <span>5,147,528 lượt xem</span> <br>
+                <span>Doraemon Vietsub</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <video controls width="100%">
+                    <source src="movie.mp4" type="video/mp4">
+                    <source src="movie.ogg" type="video/ogg">
+                </video>
+                <a href="">Còi điều khiển vật - </a><span>5,147,528 lượt xem</span> <br>
+                <span>Doraemon Vietsub</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <video controls width="100%">
+                    <source src="movie.mp4" type="video/mp4">
+                    <source src="movie.ogg" type="video/ogg">
+                </video>
+                <a href="">Chiếc máy tạo kẹo bông - </a> <span>5,147,528 lượt xem</span> <br>
+                <span>Doraemon Vietsub</span>
+            </div>
+        </div>
+
+    </div>
+    <div class="col-8">
+        <div class="row">
+            <div class="col-12">
+                <video controls width="100%">
+                    <source src="movie.mp4" type="video/mp4">
+                    <source src="movie.ogg" type="video/ogg">
+                </video>
+                <a href="">Tớ là Mari - </a> <span>5,147,528 lượt xem</span> <br>
+                <span>Tác giả</span>
+                <p>Bộ phim kể về câu chuyện Thạch Sanh chém Trăn Tinh cứu dân, bắn Đại bàng cứu công chúa, dùng tiếng
+                    đàn nhân nghĩa dẹp quân xâm lăng
+                    .Nhưng cuộc đời Thạch Sanh luôn bị tên Lý Thông làm cho điêu đứng.Cuối cùng chính nghĩa đã thắng.
+                    Tên Lý Thông gian ác bị đền tội
+                    . Mời các bạn cùng đón xem và cảm nhận.</p>
+                <p>Bộ phim kể về câu chuyện Thạch Sanh chém Trăn Tinh cứu dân, bắn Đại bàng cứu công chúa, dùng tiếng
+                    đàn nhân nghĩa dẹp quân xâm lăng
+                    .Nhưng cuộc đời Thạch Sanh luôn bị tên Lý Thông làm cho điêu đứng.Cuối cùng chính nghĩa đã thắng.
+                    Tên Lý Thông gian ác bị đền tội
+                    . Mời các bạn cùng đón xem và cảm nhận.</p>
+                <p>Bộ phim kể về câu chuyện Thạch Sanh chém Trăn Tinh cứu dân, bắn Đại bàng cứu công chúa, dùng tiếng
+                    đàn nhân nghĩa dẹp quân xâm lăng
+                    .Nhưng cuộc đời Thạch Sanh luôn bị tên Lý Thông làm cho điêu đứng.Cuối cùng chính nghĩa đã thắng.
+                    Tên Lý Thông gian ác bị đền tội
+                    . Mời các bạn cùng đón xem và cảm nhận.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+<div class="col12 footer ">© 2017- Thiết kế web bởi trang hoathinhvn.net</div>
+</div>
+</body>
+</html>

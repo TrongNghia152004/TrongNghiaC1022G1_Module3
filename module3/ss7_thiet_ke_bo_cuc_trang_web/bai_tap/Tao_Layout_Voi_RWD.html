@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        a {
+            text-decoration: none;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        .row::after {
+            display: block;
+            clear: both;
+            content: "";
+        }
+
+        .col-1 {
+            width: 8.33%;
+        }
+
+        .col-2 {
+            width: 16.66%;
+        }
+
+        .col-3 {
+            width: 25%;
+        }
+
+        .col-4 {
+            width: 33.33%;
+        }
+
+        .col-5 {
+            width: 41.66%;
+        }
+
+        .col-6 {
+            width: 50%;
+        }
+
+        .col-7 {
+            width: 58.33%;
+        }
+
+        .col-8 {
+            width: 66.66%;
+        }
+
+        .col-9 {
+            width: 75%;
+        }
+
+        .col-10 {
+            width: 83.33%;
+        }
+
+        .col-11 {
+            width: 91.66%;
+        }
+
+        .col-12 {
+            width: 100%;
+        }
+
+        [class*="col-"] {
+            float: left;
+            padding: 5px;
+        }
+
+        .header {
+            color: white;
+            background-color: black;
+        }
+
+        .left-float div {
+            float: left;
+            margin: 15px;
+        }
+
+        .main {
+            text-align: center;
+            background-color: darkgray;
+            height: 700px;
+        }
+
+        .color-blue {
+            color: deepskyblue;
+        }
+
+        .color-gray {
+            color: gray;
+        }
+
+        .margin-top {
+            margin-top: 20px;
+        }
+
+        .col3-main {
+            text-align: center;
+            background: white;
+            margin: 20px 20px;
+            padding-top: 30px;
+            padding-bottom: 30px;
+            border-style: ridge;
+            width: 200px;
+            height: 100px;
+        }
+
+        .col2-main {
+            text-align: justify;
+            background-color: white;
+            height: 700px;
+        }
+
+        .footer {
+            text-align: center;
+            background-color: dimgray;
+        }
+
+        li {
+            margin-top: 20px;
+        }
+
+        @media screen and (max-width: 768px) {
+            [class*="col-"] {
+                height: 100%;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="row header">
+    <div class="col-12 left-float">
+        <ul>
+            <div><a class="color-gray" href="">Logo</a></div>
+            <div><a class="color-gray" href="">Home</a></div>
+            <div><a class="color-gray" href="">About</a></div>
+            <div><a class="color-gray" href="">Projects</a></div>
+            <div><a class="color-gray" href="">Contact</a></div>
+            <div style="float: right"><a style="color: gray" href="">🠚] Login</a></div>
+        </ul>
+    </div>
+</div>
+<div class="row"></div>
+<div class="col-2 main">
+    <ul>
+        <li><a class="color-blue" href="">Link</a></li>
+        <li><a class="color-blue" href="">Link</a></li>
+        <li><a class="color-blue" href="">Link</a></li>
+    </ul>
+</div>
+<div class="col-8 col2-main">
+    <div>
+        <h1>Welcome</h1>
+        <p class="margin-top">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt, et, sit! Aliquid
+            aspernatur cumque dolor
+            enim ipsum odio, quae quod reiciendis similique vero. Eum facere id nisi provident ut! Aperiam dolor maiores
+            minus numquam optio similique sint veniam voluptatum. Ad amet architecto deserunt error illo, labore laborum
+            minus mollitia nemo optio perferendis vel vero, voluptates. Accusantium ad adipisci aperiam architecto
+            assumenda blanditiis cumque delectus ea eius enim eveniet impedit in laboriosam magni neque, nihil
+            perferendis praesentium provident quasi qui reprehenderit repudiandae rerum sed sequi soluta temporibus
+            vitae! Adipisci aut dolor dolores facere fugit in ipsa molestias, neque repudiandae vel veniam.</p>
+        <hr class="margin-top">
+        <h2 class="margin-top">Test</h2>
+        <p class="margin-top">Lorem ipsum...</p>
+    </div>
+</div>
+<div class="col-2 main">
+    <p class="col3-main">ADS</p>
+    <p class="col3-main">ADS</p>
+</div>
+<div class="row footer">
+    <div class="col-12">Footer</div>
+</div>
+</body>
+</html>
